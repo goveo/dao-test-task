@@ -58,7 +58,7 @@ const Root = styled.div`
 `;
 
 const Form = styled.form`
-  margin-bottom: 34px;
+  margin-bottom: 28px;
 `;
 
 const PriceOption = styled.div`
