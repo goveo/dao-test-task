@@ -1,25 +1,25 @@
 import * as React from 'react';
 import { action } from '@storybook/addon-actions';
-import { SelectProductTypeWidget } from '../src/components/SelectProductTypeWidget';
+import { SelectProductTypeWidget } from './SelectProductTypeWidget';
 
 export const Regular: React.FC = () => {
   return (
     <SelectProductTypeWidget
       prices={[
         {
-          type: '500г',
+          type: '500 г',
           price: 500,
         },
         {
-          type: '100г',
+          type: '100 г',
           price: 150,
         },
         {
-          type: '50г',
+          type: '50 г',
           price: 90,
         },
       ]}
-      onClick={() => action('clicked')}
+      onClick={action('clicked')}
     />
   );
 };

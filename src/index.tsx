@@ -8,15 +8,15 @@ const App: React.FC = () => {
       <SelectProductTypeWidget
         prices={[
           {
-            type: '500г',
+            type: '500 г',
             price: 500,
           },
           {
-            type: '100г',
+            type: '100 г',
             price: 150,
           },
           {
-            type: '50г',
+            type: '50 г',
             price: 90,
           },
         ]}

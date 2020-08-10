@@ -14,11 +14,9 @@ export const Button: React.FC<Props> = ({
   color,
   onClick,
   children,
-  ...restProps
 }) => {
   return (
     <StyledButton
-      {...restProps}
       disabled={disabled}
       onClick={onClick}
       color={color}

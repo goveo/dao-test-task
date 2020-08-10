@@ -38,13 +38,13 @@ export const SelectProductTypeWidget: React.FC<Props> = ({
             <InputPrice checked={selectedItem?.type === type}>{price} грн</InputPrice>
           </InlineBlock>
         ))}
-        <TotalPrice>
-          <Price>{selectedItem?.price || 0} грн</Price>
-          <Button disabled={!selectedItem} onClick={() => onClick(selectedItem)}>
-            {text}
-          </Button>
-        </TotalPrice>
       </form>
+      <TotalPrice>
+        <Price>{selectedItem?.price || 0} грн</Price>
+        <Button disabled={!selectedItem} onClick={() => onClick(selectedItem)}>
+          {text}
+        </Button>
+      </TotalPrice>
     </Root>
   );
 };
@@ -79,6 +79,7 @@ const InputPrice = styled.span<{ checked: boolean }>`
   min-width: 92px;
   text-align: right;
   font-weight: ${({ checked }) => (checked ? 'bold' : 'normal')};
+  color: ${({ checked }) => (checked ? '#000000' : '#999999')};
 `;
 
 const Price = styled.span`
