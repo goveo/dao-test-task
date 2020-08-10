@@ -11,34 +11,39 @@ type CartItem = {
 export interface Props {
   prices: CartItem[];
   onClick(selected?: CartItem): void;
+  text?: string;
 }
 
 export const SelectProductTypeWidget: React.FC<Props> = ({
   prices,
   onClick,
+  text = 'До кошика'
 }) => {
   const [selectedItem, setSelectedItem] = useState<CartItem>();
 
   return (
     <Root>
       <form>
-        <FormItem>
+        <InlineBlock>
           <Title>Тип</Title>
           <Title>Ціна</Title>
-        </FormItem>
+        </InlineBlock>
         {prices.map(({ type, price }) => (
-          <FormItem key={type}>
+          <InlineBlock key={type}>
             <RadioInput
               value={type}
               checked={selectedItem?.type === type}
               onChange={() => setSelectedItem({ type, price })}
             />
-            <Price checked={selectedItem?.type === type}>{price} грн</Price>
-          </FormItem>
+            <InputPrice checked={selectedItem?.type === type}>{price} грн</InputPrice>
+          </InlineBlock>
         ))}
-        <Button disabled={!selectedItem} onClick={() => onClick(selectedItem)}>
-          До кошика
-        </Button>
+        <TotalPrice>
+          <Price>{selectedItem?.price || 0} грн</Price>
+          <Button disabled={!selectedItem} onClick={() => onClick(selectedItem)}>
+            {text}
+          </Button>
+        </TotalPrice>
       </form>
     </Root>
   );
@@ -51,10 +56,18 @@ const Root = styled.div`
   padding: 24px;
 `;
 
-const FormItem = styled.div`
+const InlineBlock = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 16px 0;
+`;
+
+const TotalPrice = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-self: center;
 `;
 
 const Title = styled.span`
@@ -62,10 +75,16 @@ const Title = styled.span`
   line-height: 21px;
 `;
 
-const Price = styled.span<{ checked: boolean }>`
+const InputPrice = styled.span<{ checked: boolean }>`
   min-width: 92px;
   text-align: right;
   font-weight: ${({ checked }) => (checked ? 'bold' : 'normal')};
+`;
+
+const Price = styled.span`
+  font-size: 24px;
+  line-height: 28px;
+  margin-right: 16px;
 `;
 
 export default SelectProductTypeWidget;

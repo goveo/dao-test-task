@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { SelectProductTypeWidget } from '../src/components/SelectProductTypeWidget/SelectProductTypeWidget';
 import { action } from '@storybook/addon-actions';
+import { SelectProductTypeWidget } from '../src/components/SelectProductTypeWidget';
 
 export const Regular: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ export const Regular: React.FC = () => {
           price: 90,
         },
       ]}
-      onClick={() => console.log('clicked')}
+      onClick={() => action('clicked')}
     />
   );
 };
