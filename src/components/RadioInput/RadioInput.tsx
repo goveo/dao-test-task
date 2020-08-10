@@ -37,6 +37,7 @@ const ValueText = styled.span<ValueTextProps>`
   color: ${({ checked }) => (checked ? '#000000' : '#999999')};
   margin-left: 16px;
   cursor: pointer;
+  word-break: break-word;
 `;
 
 const Root = styled.div`

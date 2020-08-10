@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import { RadioInput } from '../RadioInput';
+import Cart from '../../icons/CartIcon.svg';
 
 type CartItem = {
   type: string;
@@ -23,26 +24,26 @@ export const SelectProductTypeWidget: React.FC<Props> = ({
 
   return (
     <Root>
-      <form>
-        <InlineBlock>
-          <Title>Тип</Title>
-          <Title>Ціна</Title>
-        </InlineBlock>
+      <Form>
+        <Title>
+          <span>Тип</span>
+          <span>Ціна</span>
+        </Title>
         {prices.map(({ type, price }) => (
-          <InlineBlock key={type}>
+          <PriceOption key={type}>
             <RadioInput
               value={type}
               checked={selectedItem?.type === type}
               onChange={() => setSelectedItem({ type, price })}
             />
             <InputPrice checked={selectedItem?.type === type}>{price} грн</InputPrice>
-          </InlineBlock>
+          </PriceOption>
         ))}
-      </form>
+      </Form>
       <TotalPrice>
         <Price>{selectedItem?.price || 0} грн</Price>
         <Button disabled={!selectedItem} onClick={() => onClick(selectedItem)}>
-          {text}
+          <StyledCard /> {text}
         </Button>
       </TotalPrice>
     </Root>
@@ -56,10 +57,14 @@ const Root = styled.div`
   padding: 24px;
 `;
 
-const InlineBlock = styled.div`
+const Form = styled.form`
+  margin-bottom: 34px;
+`;
+
+const PriceOption = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 16px 0;
+  margin-bottom: 12px;
 `;
 
 const TotalPrice = styled.div`
@@ -71,8 +76,12 @@ const TotalPrice = styled.div`
 `;
 
 const Title = styled.span`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
   font-size: 18px;
   line-height: 21px;
+  font-weight: 400;
 `;
 
 const InputPrice = styled.span<{ checked: boolean }>`
@@ -86,6 +95,10 @@ const Price = styled.span`
   font-size: 24px;
   line-height: 28px;
   margin-right: 16px;
+`;
+
+const StyledCard = styled(Cart)`
+  margin-right: 8px;
 `;
 
 export default SelectProductTypeWidget;
