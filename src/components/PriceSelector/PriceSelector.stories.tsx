@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { action } from '@storybook/addon-actions';
-import { SelectProductTypeWidget } from './SelectProductTypeWidget';
+import { PriceSelector } from './PriceSelector';
 
 export const Regular: React.FC = () => {
   return (
-    <SelectProductTypeWidget
+    <PriceSelector
       prices={[
         {
           type: '500 г',
@@ -26,7 +26,7 @@ export const Regular: React.FC = () => {
 
 export const WithLongTypes: React.FC = () => {
   return (
-    <SelectProductTypeWidget
+    <PriceSelector
       prices={[
         {
           type: 'Example: Long name of product',
@@ -49,6 +49,6 @@ export const WithLongTypes: React.FC = () => {
 };
 
 export default {
-  title: 'Common/SelectProductTypeWidget',
-  component: SelectProductTypeWidget,
+  title: 'Common/PriceSelector',
+  component: PriceSelector,
 };

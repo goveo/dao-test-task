@@ -15,7 +15,7 @@ export interface Props {
   text?: string;
 }
 
-export const SelectProductTypeWidget: React.FC<Props> = ({
+export const PriceSelector: React.FC<Props> = ({
   prices,
   onClick,
   text = 'До кошика'
@@ -101,4 +101,4 @@ const StyledCard = styled(Cart)`
   margin-right: 8px;
 `;
 
-export default SelectProductTypeWidget;
+export default PriceSelector;

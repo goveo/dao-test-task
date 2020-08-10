@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { SelectProductTypeWidget } from './components/SelectProductTypeWidget';
+import { PriceSelector } from './components/PriceSelector';
 import styled from 'styled-components';
 
 const App: React.FC = () => {
   return (
     <AppRoot>
-      <SelectProductTypeWidget
+      <PriceSelector
         prices={[
           {
             type: '500 г',
