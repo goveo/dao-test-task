@@ -21,7 +21,7 @@ export const RadioInput: React.FC<Props> = ({ labelText, value, checked, onChang
             checked={checked}
             aria-checked={checked}
           />
-          <Fill />
+          <CheckedDot />
         </label>
       </Radio>
       <ValueText checked={checked} onClick={onChange}>{labelText || value}</ValueText>
@@ -65,7 +65,7 @@ const Radio = styled.div<{checked?: boolean}>`
   }
 `;
 
-const Fill = styled.div`
+const CheckedDot = styled.div`
   background: #6CA22C;
   width: 0;
   height: 0;
@@ -89,7 +89,7 @@ const Input = styled.input`
   cursor: pointer;
 
   &:checked {
-    & ~ ${Fill} {
+    & ~ ${CheckedDot} {
       width: calc(100% / 3);
       height: calc(100% / 3);
       transition: width 0.2s ease-out, height 0.2s ease-out;

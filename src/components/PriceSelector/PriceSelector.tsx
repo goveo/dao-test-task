@@ -30,7 +30,7 @@ export const PriceSelector: React.FC<Props> = ({
           <span>Ціна</span>
         </Title>
         {prices.map(({ type, price }) => (
-          <PriceOption key={type}>
+          <PriceOption key={type} onClick={() => setSelectedItem({ type, price })}>
             <RadioInput
               value={type}
               checked={selectedItem?.type === type}
@@ -41,7 +41,7 @@ export const PriceSelector: React.FC<Props> = ({
         ))}
       </Form>
       <TotalPrice>
-        <Price>{selectedItem?.price || 0} грн</Price>
+        {selectedItem && <Price>{selectedItem.price} грн</Price>}
         <Button disabled={!selectedItem} onClick={() => onClick(selectedItem)}>
           <StyledCard /> {text}
         </Button>
@@ -65,6 +65,7 @@ const PriceOption = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
+  cursor: pointer;
 `;
 
 const TotalPrice = styled.div`

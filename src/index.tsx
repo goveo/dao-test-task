@@ -1,8 +1,11 @@
-import * as React from 'react';
+import React, { useCallback } from 'react';
 import { PriceSelector } from './components/PriceSelector';
 import styled from 'styled-components';
 
 const App: React.FC = () => {
+  const onClick = useCallback((item) => {
+    alert(`selected: ${JSON.stringify(item)}`);
+  }, []);
   return (
     <AppRoot>
       <PriceSelector
@@ -20,7 +23,7 @@ const App: React.FC = () => {
             price: 90,
           },
         ]}
-        onClick={(item) => console.log('selected', item)}
+        onClick={onClick}
       />
     </AppRoot>
   );

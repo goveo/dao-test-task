@@ -48,6 +48,18 @@ export const WithLongTypes: React.FC = () => {
   );
 };
 
+export const LongList: React.FC = () => {
+  return (
+    <PriceSelector
+      prices={Array.from(Array(15).keys()).map((item) => ({
+        type: item + 1 + '',
+        price: (item + 1) * 100,
+      }))}
+      onClick={action('clicked')}
+    />
+  );
+};
+
 export default {
   title: 'Common/PriceSelector',
   component: PriceSelector,
