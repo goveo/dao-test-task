@@ -3,7 +3,7 @@ import { PriceSelector } from './components/PriceSelector';
 import styled from 'styled-components';
 
 const App: React.FC = () => {
-  const onClick = useCallback((item) => {
+  const onSubmit = useCallback((item) => {
     alert(`selected: ${JSON.stringify(item)}`);
   }, []);
   return (
@@ -23,7 +23,7 @@ const App: React.FC = () => {
             price: 90,
           },
         ]}
-        onClick={onClick}
+        onSubmit={onSubmit}
       />
     </AppRoot>
   );

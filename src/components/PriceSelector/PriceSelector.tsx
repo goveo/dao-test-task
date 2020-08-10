@@ -11,14 +11,14 @@ type CartItem = {
 
 export interface Props {
   prices: CartItem[];
-  onClick(selected?: CartItem): void;
-  text?: string;
+  onSubmit(selected?: CartItem): void;
+  submitButtonText?: string;
 }
 
 export const PriceSelector: React.FC<Props> = ({
   prices,
-  onClick,
-  text = 'До кошика'
+  onSubmit,
+  submitButtonText = 'До кошика'
 }) => {
   const [selectedItem, setSelectedItem] = useState<CartItem>();
 
@@ -42,8 +42,8 @@ export const PriceSelector: React.FC<Props> = ({
       </Form>
       <TotalPrice>
         {selectedItem && <Price>{selectedItem.price} грн</Price>}
-        <Button disabled={!selectedItem} onClick={() => onClick(selectedItem)}>
-          <StyledCard /> {text}
+        <Button disabled={!selectedItem} onClick={() => onSubmit(selectedItem)}>
+          <StyledCard /> {submitButtonText}
         </Button>
       </TotalPrice>
     </Root>

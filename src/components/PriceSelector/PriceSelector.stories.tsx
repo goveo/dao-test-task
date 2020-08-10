@@ -19,7 +19,7 @@ export const Regular: React.FC = () => {
           price: 90,
         },
       ]}
-      onClick={action('clicked')}
+      onSubmit={action('submitted')}
     />
   );
 };
@@ -43,7 +43,7 @@ export const WithLongTypes: React.FC = () => {
           price: 99.99,
         },
       ]}
-      onClick={action('clicked')}
+      onSubmit={action('submitted')}
     />
   );
 };
@@ -55,7 +55,7 @@ export const LongList: React.FC = () => {
         type: item + 1 + '',
         price: (item + 1) * 100,
       }))}
-      onClick={action('clicked')}
+      onSubmit={action('submitted')}
     />
   );
 };
